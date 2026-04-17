@@ -1196,6 +1196,24 @@
     </footer>
 
     <script>
+        // Typing effect for the hero title — letters appear one by one,
+        // while the blinking cursor (.hero-title::after) stays visible throughout.
+        (function () {
+            const title = document.querySelector('.hero-title');
+            if (!title) return;
+            const fullText = title.textContent.trim();
+            title.textContent = '';
+            let i = 0;
+            function typeNext() {
+                if (i < fullText.length) {
+                    title.textContent += fullText.charAt(i++);
+                    setTimeout(typeNext, 140);
+                }
+            }
+            // Start after the hero's initial fadeInUp (delay 0.6s + duration 0.8s)
+            setTimeout(typeNext, 1400);
+        })();
+
         // AJAX submit for the Formspree contact form
         (function () {
             const form = document.querySelector('.contact-form');
