@@ -578,6 +578,28 @@
             font-size: 1rem;
         }
 
+        .form-status {
+            margin-top: 1rem;
+            padding: 0.9rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .form-status.error {
+            display: block;
+            background: rgba(255, 80, 80, 0.1);
+            border: 1px solid #ff5050;
+            color: #ff8080;
+        }
+
         /* Footer */
         .footer {
             background: var(--primary-bg);
@@ -1158,6 +1180,7 @@
                     <!-- Custom subject line for the email Formspree sends you -->
                     <input type="hidden" name="_subject" value="New portfolio contact from your website">
                     <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+                    <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
                 </form>
             </div>
         </div>
@@ -1171,5 +1194,50 @@
             <p>&copy; 2026 DILRUSHA. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // AJAX submit for the Formspree contact form
+        (function () {
+            const form = document.querySelector('.contact-form');
+            const status = document.getElementById('formStatus');
+            if (!form || !status) return;
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                status.className = 'form-status';
+                status.textContent = '';
+
+                const submitBtn = form.querySelector('.form-submit');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending…';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        status.className = 'form-status success';
+                        status.textContent = 'Thanks! Your message has been sent — I\'ll get back to you soon.';
+                        form.reset();
+                    } else {
+                        const data = await response.json().catch(() => ({}));
+                        const msg = (data.errors && data.errors.map(e => e.message).join(', ')) || 'Something went wrong. Please try again or email me directly.';
+                        status.className = 'form-status error';
+                        status.textContent = msg;
+                    }
+                } catch (err) {
+                    status.className = 'form-status error';
+                    status.textContent = 'Network error. Please check your connection and try again.';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
