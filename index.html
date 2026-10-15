@@ -829,6 +829,7 @@
         .projects-grid .project-card:nth-child(7) { --card-index: 6; }
         .projects-grid .project-card:nth-child(8) { --card-index: 7; }
         .projects-grid .project-card:nth-child(9) { --card-index: 8; }
+        .projects-grid .project-card:nth-child(10) { --card-index: 9; }
 
         .skills-grid .skill-category:nth-child(1) { --card-index: 0; }
         .skills-grid .skill-category:nth-child(2) { --card-index: 1; }
@@ -932,6 +933,9 @@
                     <span class="skill-tag">n8n</span>
                     <span class="skill-tag">Airtable</span>
                     <span class="skill-tag">ChatGPT</span>
+                    <span class="skill-tag">ClickHouse</span>
+                    <span class="skill-tag">Metabase</span>
+                    <span class="skill-tag">Docker</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -969,6 +973,8 @@
                     <span class="skill-tag">Chat Intelligence</span>
                     <span class="skill-tag">Document Processing</span>
                     <span class="skill-tag">Sentiment Analysis</span>
+                    <span class="skill-tag">Data Pipelines (ETL)</span>
+                    <span class="skill-tag">Marketing Analytics</span>
                 </div>
             </div>
         </div>
@@ -1001,6 +1007,24 @@
             <h2 class="section-title">Featured Projects</h2>
         </div>
         <div class="projects-grid">
+            <!-- Marketing Analytics Pipeline -->
+            <div class="project-card">
+                <div class="project-icon">📈</div>
+                <span class="project-type">Data Analytics</span>
+                <h3 class="project-title">Google Ads Analytics Pipeline: n8n → ClickHouse → Metabase</h3>
+                <p class="project-description">
+                    End-to-end marketing analytics pipeline: n8n loads daily Google Ads data into ClickHouse with gap backfill and data-quality checks; Metabase dashboards track ROAS, CPA and trends. Analysis (synthetic GCC dataset) found 3 budget leaks worth ~240 extra conversions/month (+17%) at the same spend.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">n8n</span>
+                    <span class="tech-tag">ClickHouse</span>
+                    <span class="tech-tag">Metabase</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Data Quality</span>
+                </div>
+            </div>
+
             <!-- WhatsApp Expense Tracker -->
             <div class="project-card">
                 <div class="project-icon">💰</div>
