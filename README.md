@@ -1,16 +1,15 @@
-# Dilrusha Portfolio
+# Dilrusha Abdul Majeed · Portfolio
 
-Personal portfolio site for Dilrusha — AI Automation Engineer.
+Personal portfolio: Data Analyst & AI Automation Engineer.
 
-## Live site
-Once GitHub Pages is enabled, the site will be available at:
-`https://<username>.github.io/dilrusha-portfolio/`
+**Live:** https://dilrushabdulmajeed-lang.github.io/dilrusha-portfolio-v2/
 
-## Local preview
-Open `index.html` in any browser, or run a simple server:
+- `index.html`: the site (single page, no build step; dark/light theme, project filters, Formspree contact form)
+- `assets/img/`: project screenshots (WebP)
+- `assets/Dilrusha-Abdul-Majeed-CV.pdf`: CV, generated from `cv/cv.html`
 
+Regenerate the CV PDF:
 ```bash
-python3 -m http.server 8000
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer \
+  --print-to-pdf=assets/Dilrusha-Abdul-Majeed-CV.pdf "file://$PWD/cv/cv.html"
 ```
-
-Then visit http://localhost:8000

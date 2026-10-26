@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dilrusha Abdul Majeed · CV</title>
+<style>
+  @page { size: A4; margin: 10mm 13mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 9.1pt/1.36 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #111827; }
+  h1 { font-size: 21pt; margin: 0; letter-spacing: -.01em; }
+  .role { font-size: 11pt; color: #047857; font-weight: 600; margin: 2px 0 6px; }
+  .contact { font-size: 9pt; color: #374151; }
+  .contact a { color: #374151; text-decoration: none; }
+  h2 { font-size: 10pt; text-transform: uppercase; letter-spacing: .08em; color: #047857; border-bottom: 1px solid #d1d5db;
+       padding-bottom: 2px; margin: 10px 0 5px; }
+  p { margin: 0 0 4px; }
+  ul { margin: 2px 0 0; padding-left: 15px; }
+  li { margin: 1px 0; }
+  .item { margin-bottom: 5px; }
+  .row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .row b { font-size: 10pt; }
+  .meta { color: #6b7280; font-size: 8.8pt; white-space: nowrap; }
+  .stack { color: #6b7280; font-size: 8.8pt; }
+  .skills { display: grid; grid-template-columns: 128px 1fr; gap: 2px 10px; }
+  .skills dt { font-weight: 600; }
+  .skills dd { margin: 0; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+  <h1>Dilrusha Abdul Majeed</h1>
+  <div class="role">Data Analyst &amp; AI Automation Engineer</div>
+  <div class="contact">
+    <a href="mailto:dilrushabdulmajeed@gmail.com">dilrushabdulmajeed@gmail.com</a> ·
+    <a href="https://www.linkedin.com/in/dilrusha-abdul-majeed-15b2912a7">linkedin.com/in/dilrusha-abdul-majeed-15b2912a7</a><br>
+    <a href="https://github.com/dilrushabdulmajeed-lang">github.com/dilrushabdulmajeed-lang</a> ·
+    <a href="https://dilrushabdulmajeed-lang.github.io/dilrusha-portfolio-v2/">dilrushabdulmajeed-lang.github.io/dilrusha-portfolio-v2</a>
+  </div>
+
+  <h2>Summary</h2>
+  <p>Data analyst and AI automation engineer who turns business data into decisions and automates them. Builds SQL and Python
+  analyses (funnels, cohorts, RFM, A/B tests) on ClickHouse with Metabase dashboards, and production-minded automations with
+  n8n and the Claude API: agents with guardrails, structured outputs and measured evaluations.</p>
+
+  <h2>Experience</h2>
+  <div class="item">
+    <div class="row"><b>Automation Engineer · ZenApp Studio</b><span class="meta">Sep 2025 – Present</span></div>
+    <ul>
+      <li>Build AI-powered workflow automations in n8n for business processes.</li>
+      <li>Developed email automation agents with summarisation, filtering and automated replies.</li>
+      <li>Built RAG chatbots with automated knowledge ingestion from Google Drive, and Telegram agents for notifications and commands.</li>
+      <li>Implemented AI sentiment-analysis pipelines storing structured results in Airtable.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><b>Data Analytics Trainee (Remote, project-based)</b><span class="meta"></span></div>
+    <ul>
+      <li>Supported data analysis and reporting on projects for a car-wash marketplace platform and a point-of-sale (POS) software company.</li>
+    </ul>
+  </div>
+
+  <h2>Selected Projects</h2>
+  <div class="item">
+    <div class="row"><b>Ask Your Data: text-to-SQL agent</b><span class="stack">Claude API · Python · ClickHouse · Streamlit</span></div>
+    <ul>
+      <li>Claude agent that answers business questions by writing read-only SQL; returns structured answers with the query used.</li>
+      <li>Passed 54/54 evaluation cases (incl. missing-data traps and prompt-injection attempts) at ~1¢ and 6 s per question;
+          ran ablations and a model comparison; three guardrail layers including a read-only database user.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><b>E-commerce Analytics: funnels, cohorts &amp; RFM</b><span class="stack">ClickHouse · SQL · Metabase · n8n</span></div>
+    <ul>
+      <li>Analysed 1.2M events with windowFunnel/retention and RFM segmentation; found a mobile checkout gap (46% vs 78%)
+          worth ~AED 7.5M/year at half-closure, and a promo cohort with 4.6× lower repeat rate.</li>
+      <li>Automated a weekly n8n export of at-risk high-value customers with a suggested action for the CRM team.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><b>A/B Test Analysis: mobile checkout redesign</b><span class="stack">Python · pandas · SciPy · statsmodels</span></div>
+    <ul>
+      <li>Power analysis, SRM check, z-test with CIs, bootstrap for skewed revenue, Holm-corrected segments, interaction and novelty checks.</li>
+      <li>Recommended an iOS rollout: +5.4 pts completion (p &lt; 0.001), ~AED 2.3M/year sized on the post-novelty lift.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><b>AI Anomaly Alerts for Google Ads</b><span class="stack">n8n · Claude API · ClickHouse · Telegram</span></div>
+    <ul>
+      <li>SQL detects daily cost spikes; Claude explains cause, evidence and actions via JSON-schema output; alerts logged and sent to Telegram.</li>
+      <li>Backtest over 370 days: 3/3 incidents caught, 0 false alarms after adding a marketing-calendar guard; ~3.5¢ per alert.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><b>Marketing Analytics Pipeline</b><span class="stack">n8n · ClickHouse · Metabase · Docker</span></div>
+    <ul>
+      <li>Daily Google Ads → ClickHouse load with gap backfill and a data-quality gate; Metabase dashboards for ROAS, CPA and trends.</li>
+      <li>Insights memo identified 3 budget leaks worth ~+17% conversions at the same spend.</li>
+    </ul>
+  </div>
+  <p class="stack">Portfolio projects use synthetic data; code and case studies on GitHub.</p>
+
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Analytics</dt><dd>SQL, ClickHouse, Python (pandas, SciPy, statsmodels), A/B testing, cohort &amp; RFM analysis, Metabase, Jupyter</dd>
+    <dt>AI &amp; automation</dt><dd>n8n, Claude API (tool use, structured outputs), LLM evaluation, RAG, prompt engineering, ChatGPT, Claude Code</dd>
+    <dt>Engineering</dt><dd>Docker, REST APIs, Node.js, Git &amp; GitHub, Streamlit, data-quality checks</dd>
+    <dt>Integrations</dt><dd>Google Ads API, WhatsApp API, Telegram bots, Google Sheets &amp; Drive, Airtable</dd>
+  </dl>
+
+  <h2>Courses &amp; Languages</h2>
+  <p><b>Courses:</b> Data analytics, SQL and Python coursework (DataCamp, Udemy).</p>
+  <p><b>Languages:</b> English, Arabic, Hindi, Malayalam.</p>
+</body>
+</html>
